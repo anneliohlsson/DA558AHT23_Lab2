@@ -1,0 +1,63 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family:Georgia, 'Times New Roman', Times, serif; 
+    color: rgb(83, 78, 78);
+}
+
+form {
+    border: 0.125em solid rgba(83, 78, 78, 0.322); 
+    width: fit-content;
+    height: fit-content; 
+    border-radius: 2%;
+    padding: 1.5em;
+    margin: 3em;
+}
+form label {
+    border-color: rgba(83, 78, 78, 0.712);
+    font-size: 1.1em;
+}
+
+p {
+    font-size: 1.1em;
+}
+
+h1 {
+    margin-left: 2em;
+    margin-top: 1em
+}
+
+fieldset {
+    border: 0;
+}
+
+textarea {
+    resize: none; 
+    border-color: rgba(83, 78, 78, 0.712);
+    width: auto;
+    height: auto;
+}
+
+input {
+    border: 1px solid rgba(83, 78, 78, 0.712);
+    padding: 0.3em;
+}
+
+form legend {
+    margin-bottom: 1em;
+}
+
+#send-button {
+    border-radius: 17%; 
+    padding: 3% 5%; 
+    font-size: 1em; 
+    background-color: rgba(153, 50, 204, 0.301); 
+    margin-top: 10px;
+    margin-bottom: 1.5em;
+}
+
+#send-button:hover {
+    background-color:  rgba(153, 50, 204, 0.500); 
+    cursor: pointer;
+}

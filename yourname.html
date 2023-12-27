@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media consumption form</title>
+    <meta name="description" content="A form about media consumption">
+    <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+    <h1>Some questions about media consumption</h1>
+    
+    <form action="mailto:anneli.ohlsson@gmail.com" method="post" enctype="text/plain" id="mediaForm">
+        <fieldset>
+            <legend><h2>Please tell us about you media consumption</h2></legend>
+            <label for="firstname">First Name*</label>
+            <br> 
+            <input type="text" name="firstname" id="firstname" placeholder="Type your first name here"><br>
+            <span id="errorFirstName"></span><br>
+            <label for="lastname">Last Name*</label><br> 
+            <input type="text" name="lastname" id="lastname" value="" placeholder="Type your last name here"><br>
+            <span id="errorLastName"></span>
+            <br>
+            <label for="email">Email*</label><br> 
+            <input type="text" name="email" id="email" value="" placeholder="example@example.se"><br>
+            <span id='errorEmail'></span>
+            <br>
+            <p>In which age group are you?</p><br>
+            <input type="radio" id="age18-30" name="agegroup" value ="18-30">
+            <label for="18-30">18-30</label><br>
+            <input type="radio" id="age31-43" name="agegroup" value ="31-43">
+            <label for="31-43">31-43</label><br>
+            <input type="radio" id="age44-56" name="agegroup" value ="44-56">
+            <label for="44-56">44-56</label><br>
+            <input type="radio" id="ageover60" name="agegroup" value ="60+">
+            <label for="60+">60+</label><br><br>
+            <p>What is your main occupation?</p><br>
+            <input type="radio" id="employed" name="occupation" value ="employed">
+            <label for="employed">Employed</label><br>
+            <input type="radio" id="student" name="occupation" value ="student">
+            <label for="student">Student</label><br>
+            <input type="radio" id="other" name="occupation" value ="other">
+            <label for="other">Other</label><br><br>
+            <p>In what format do you prefer to consume media?*</p><br>
+            <input type="radio" id="audio" name="mediaformat" value ="audio">
+            <label for="audio">Audio (only sound)</label><br>
+            <input type="radio" id="visual" name="mediaformat" value ="visual">
+            <label for="visual">Visual (text and/or images)</label><br>
+            <input type="radio" id="audiovisual" name="mediaformat" value ="audiovisual">
+            <label for="audiovisual">Audio-visual</label><br>
+            <span id="errorMediaFormat"></span>
+            <br>
+            <p>What media channel/s have you consumed during the last week?*</p><br>
+            <input type="checkbox" id="tv" name="mediachannels" value="TV">
+            <label for="tv">TV</label><br>
+            <input type="checkbox" id="radio" name="mediachannels" value="radio/pod">
+            <label for="radiopod">Radio/pod</label><br>
+            <input type="checkbox" id="video" name="mediachannels" value="video">
+            <label for="onlinevideo">Online Video</label><br>
+            <input type="checkbox" id="socialMedia" name="mediachannels" value="social media">
+            <label for="socialmedia">Social media</label><br>
+            <input type="checkbox" id="none" name="mediachannels" value="none">
+            <label for="none">None of the above</label><br>
+            <span id="errorMediaChannels"></span>
+            <br>
+            <label for="favoritecontent">What show/program/clip did you enjoy the most and why?</label><br>
+            <textarea name="favoritecontent" id="favoritecontent" rows="4" cols="30"></textarea>
+            <br><br>
+            <input type="submit" id="send-button" value="Send">
+            <p>* Required</p>
+        </fieldset>
+    </form>
+    <script src="yourname.js"></script> 
+</body>
+</html>
