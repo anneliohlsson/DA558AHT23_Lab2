@@ -3,53 +3,53 @@
       form.addEventListener('submit', function (event) { validate( form, event )
    })
    function validate (form, event ) {
-    let value = document.getElementById('firstname').value;
-    let error = document.getElementById('errorFirstName')
-        if(value === '') {
-        error.innerText ='Please enter your first name'
-        error.style.color = 'red'
+    let valueFirstName = document.getElementById('firstname').value;
+    let errorFirstName = document.getElementById('errorFirstName')
+        if(valueFirstName === '' || (!isNaN(valueFirstName))) {
+        errorFirstName.innerText ='Please enter your first name (only letters)'
+        errorFirstName.style.color = 'red'
     }
     else {
-        error.innerText =''
+        errorFirstName.innerText =''
     }
 
-    value = document.getElementById('lastname').value;
-    error = document.getElementById('errorLastName')
-    if(value === '') {
-        error.innerText = 'Please enter your last name'
-        error.style.color = 'red'
+    valueLn = document.getElementById('lastname').value;
+    errorLn = document.getElementById('errorLastName')
+    if(valueLn === '' || (!isNaN(valueLn))) {
+        errorLn.innerText = 'Please enter your last name (only letters)'
+        errorLn.style.color = 'red'
     }
     else {
-        error.innerText =''
+        errorLn.innerText =''
 
     }
 
-    value = document.getElementById('email').value;
-    error = document.getElementById('errorEmail')
-    if( value === '' || ( value.indexOf('@' === -1)) || 
-    ( value.indexOf('.') === -1 ) ) {
-        error.innerText = 'Please enter a valid email adress'
-        error.style.color = 'red'
+    valueEmail = document.getElementById('email').value;
+    errorEmail = document.getElementById('errorEmail')
+    if( valueEmail === '' || ( valueEmail.indexOf('@') === -1) || 
+    ( valueEmail.indexOf('.') === -1 ) ) {
+        errorEmail.innerText = 'Please enter a valid email adress'
+        errorEmail.style.color = 'red'
     }
     else {
-        error.innerText =''
+        errorEmail.innerText =''
     }
 
-    error = document.getElementById('errorMediaFormat')
+    errorMediaFormat = document.getElementById('errorMediaFormat')
     
         let checkedAudio = document.getElementById('audio').checked;
         let checkedVisual = document.getElementById('visual').checked;
         let checkedAudioVisual = document.getElementById('audiovisual').checked;
 
         if(checkedAudio === false && checkedVisual === false && checkedAudioVisual === false) {
-            error.innerText = 'Please select an option';
-            error.style.color = 'red';
+            errorMediaFormat.innerText = 'Please select an option';
+            errorMediaFormat.style.color = 'red';
                     }
         else {
-            error.innerText =''
+            errorMediaFormat.innerText =''
     }
 
-    error = document.getElementById('errorMediaChannels')
+    errorMediaChannel = document.getElementById('errorMediaChannels')
 
     let checkedTv = document.getElementById('tv').checked
     let checkedRadio = document.getElementById('radio').checked
@@ -58,14 +58,30 @@
     let checkedNone = document.getElementById('none').checked
 
     if(checkedTv === false && checkedRadio === false && checkedVideo === false && checkedSocialMeia === false && checkedNone === false){
-        error.innerText = 'Please select at least one option';
-        error.style.color = 'red';
+        errorMediaChannel.innerText = 'Please select at least one option';
+        errorMediaChannel.style.color = 'red';
     }
     else {
-        error.innerText =''
+        errorMediaChannel.innerText =''
     }    
-        event.preventDefault();
-    return;
+    
+    let validateFirstName = valueFirstName !== '' && isNaN(valueFirstName)
+    let validateLn = valueLn !== '' && isNaN(valueLn)
+    let validateEmail = valueEmail !== '' && valueEmail.indexOf('@') !== -1 && valueEmail.indexOf('.') !== -1
+    let validateMediaFormat = checkedAudio === true || checkedVisual === true || checkedAudioVisual === true
+    let validateMediaChannels = checkedTv === true || checkedRadio === true || checkedVideo === true || checkedSocialMeia === true || checkedNone === true
+
+   if(validateFirstName === true && validateLn === true && validateEmail === true && validateMediaFormat === true && validateMediaChannels === true) {
+        alert('Information succussfully filled out!')
+    }
+   else {
+       alert('Information missing')
+    }
+
+      
+    
+    event.preventDefault();
+    return
    }
 
  
@@ -82,10 +98,6 @@
 
 
       
-
-   
-   const lastname = document.getElementById('lastname').value;
-   const email = document.getElementById('email').value;
 
 
   
