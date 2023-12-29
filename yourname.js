@@ -3,40 +3,43 @@
       form.addEventListener('submit', function (event) {validate( form, event )
    })
 
+   
    function validate (form, event ) {
     let valueFirstName = document.getElementById('firstname').value;
-    let errorFirstName = document.getElementById('errorFirstName')
-        if(valueFirstName === '' || (!isNaN(valueFirstName))) {
-        errorFirstName.innerText ='Please enter your first name (only letters)'
-        errorFirstName.style.color = 'red'
+    let errorFirstName = document.getElementById('errorFirstName');
+    let letters = /^[A-Za-z]+$/;
+        
+        if(valueFirstName === '' || (!isNaN(valueFirstName)) || !valueFirstName.match(letters)) {
+        errorFirstName.innerText ='Please enter your first name (only letters)';
+        errorFirstName.style.color = 'red';
     }
+
     else {
-        errorFirstName.innerText =''
+        errorFirstName.innerText ='';
     }
 
     valueLn = document.getElementById('lastname').value;
-    errorLn = document.getElementById('errorLastName')
-    if(valueLn === '' || (!isNaN(valueLn))) {
-        errorLn.innerText = 'Please enter your last name (only letters)'
-        errorLn.style.color = 'red'
+    errorLn = document.getElementById('errorLastName');
+    if(valueLn === '' || (!isNaN(valueLn)) || !valueLn.match(letters)) {
+        errorLn.innerText = 'Please enter your last name (only letters)';
+        errorLn.style.color = 'red';
     }
     else {
-        errorLn.innerText =''
+        errorLn.innerText ='';
 
     }
 
     valueEmail = document.getElementById('email').value;
-    errorEmail = document.getElementById('errorEmail')
-    if( valueEmail === '' || ( valueEmail.indexOf('@') === -1) || 
-    ( valueEmail.indexOf('.') === -1 ) ) {
-        errorEmail.innerText = 'Please enter a valid email adress'
-        errorEmail.style.color = 'red'
+    errorEmail = document.getElementById('errorEmail');
+    if( valueEmail === '' || ( valueEmail.indexOf('@') === -1) || (valueEmail.indexOf('.') === -1 ) ) {
+        errorEmail.innerText = 'Please enter a valid email adress';
+        errorEmail.style.color = 'red';
     }
     else {
-        errorEmail.innerText =''
+        errorEmail.innerText ='';
     }
 
-    errorfrontEnd = document.getElementById('errorfrontEnd')
+    errorfrontEnd = document.getElementById('errorfrontEnd');
     
         let checkedCss = document.getElementById('frontEndCss').checked;
         let checkedCplusPlus = document.getElementById('frontEndc++').checked;
@@ -47,34 +50,34 @@
             errorfrontEnd.style.color = 'red';
                     }
         else {
-            errorfrontEnd.innerText =''
+            errorfrontEnd.innerText ='';
     }
 
-    errorFruit = document.getElementById('errorFruit')
+    errorFruit = document.getElementById('errorFruit');
 
-    let checkedBlueSunset = document.getElementById('sunsetMarsBlue').checked
-    let checkedArmpit = document.getElementById('sweatArmpit').checked
-    let checkedApple = document.getElementById('fruitApple').checked
-    let checkedAubergine = document.getElementById('fruitAubergine').checked
-    let checkedStrawBerry = document.getElementById('fruitStrawberry').checked
-    let checkedKiwi = document.getElementById('fruitKiwi').checked
+    let checkedBlueSunset = document.getElementById('sunsetMarsBlue').checked;
+    let checkedArmpit = document.getElementById('sweatArmpit').checked;
+    let checkedApple = document.getElementById('fruitApple').checked;
+    let checkedAubergine = document.getElementById('fruitAubergine').checked;
+    let checkedStrawBerry = document.getElementById('fruitStrawberry').checked;
+    let checkedKiwi = document.getElementById('fruitKiwi').checked;
     
     if(checkedApple === false && checkedAubergine === false && checkedStrawBerry === false && checkedKiwi === false){
         errorFruit.innerText = 'Please select at least one option';
         errorFruit.style.color = 'red';
     }
     else {
-        errorFruit.innerText =''
+        errorFruit.innerText ='';
     }    
     
-    let validateFirstName = valueFirstName !== '' && isNaN(valueFirstName)
-    let validateLn = valueLn !== '' && isNaN(valueLn)
-    let validateEmail = valueEmail !== '' && valueEmail.indexOf('@') !== -1 && valueEmail.indexOf('.') !== -1
-    let validatefrontEnd = checkedCss === true || checkedCplusPlus === true || checkedJavaScript === true
-    let validateFruit = checkedApple === true || checkedAubergine === true || checkedStrawBerry === true || checkedKiwi === true 
+    let validateFirstName = valueFirstName !== '' && isNaN(valueFirstName);
+    let validateLn = valueLn !== '' && isNaN(valueLn);
+    let validateEmail = valueEmail !== '' && valueEmail.indexOf('@') !== -1 && valueEmail.indexOf('.') !== -1;
+    let validatefrontEnd = checkedCss === true || checkedCplusPlus === true || checkedJavaScript === true;
+    let validateFruit = checkedApple === true || checkedAubergine === true || checkedStrawBerry === true || checkedKiwi === true; 
 
     if(validateFirstName === true && validateLn === true && validateEmail === true && validatefrontEnd === true && validateFruit === true) {
-        alert('The quiz was succussfully filled out!')
+        alert('The quiz was succussfully filled out!');
         }
     
     let score = 0
