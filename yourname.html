@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media consumption form</title>
-    <meta name="description" content="A form about media consumption">
+    <meta name="description" content="A general knowledge quiz">
     <link rel="stylesheet" href="style.css">  
 </head>
 <body>
-    <h1>Some questions about media consumption</h1>
-    
-    <form action="mailto:anneli.ohlsson@gmail.com" method="post" enctype="text/plain" id="mediaForm">
+        <form action="mailto:anneli.ohlsson@gmail.com" method="post" enctype="text/plain" id="quiz">
         <fieldset>
-            <legend><h2>Please tell us about you media consumption</h2></legend>
+            <legend><h1>A general knowledge quiz</h1></legend>
             <label for="firstname">First Name*</label>
             <br> 
             <input type="text" name="firstname" id="firstname" placeholder="Type your first name here"><br>
@@ -25,46 +23,43 @@
             <input type="text" name="email" id="email" value="" placeholder="example@example.se"><br>
             <span id='errorEmail'></span>
             <br>
-            <p>In which age group are you?</p><br>
-            <input type="radio" id="age18-30" name="agegroup" value ="18-30">
-            <label for="18-30">18-30</label><br>
-            <input type="radio" id="age31-43" name="agegroup" value ="31-43">
-            <label for="31-43">31-43</label><br>
-            <input type="radio" id="age44-56" name="agegroup" value ="44-56">
-            <label for="44-56">44-56</label><br>
-            <input type="radio" id="ageover60" name="agegroup" value ="60+">
-            <label for="60+">60+</label><br><br>
-            <p>What is your main occupation?</p><br>
-            <input type="radio" id="employed" name="occupation" value ="employed">
-            <label for="employed">Employed</label><br>
-            <input type="radio" id="student" name="occupation" value ="student">
-            <label for="student">Student</label><br>
-            <input type="radio" id="other" name="occupation" value ="other">
-            <label for="other">Other</label><br><br>
-            <p>In what format do you prefer to consume media?*</p><br>
-            <input type="radio" id="audio" name="mediaformat" value ="audio">
-            <label for="audio">Audio (only sound)</label><br>
-            <input type="radio" id="visual" name="mediaformat" value ="visual">
-            <label for="visual">Visual (text and/or images)</label><br>
-            <input type="radio" id="audiovisual" name="mediaformat" value ="audiovisual">
-            <label for="audiovisual">Audio-visual</label><br>
-            <span id="errorMediaFormat"></span>
+            <p>What color is the sunset on Mars?</p><br>
+            <input type="radio" id="sunsetMarsRed" name="q1-sunsetMars" value ="red">
+            <label for="red">Red</label><br>
+            <input type="radio" id="sunsetMarsPink" name="q1-sunsetMars" value ="pink">
+            <label for="pink">Pink</label><br>
+            <input type="radio" id="sunsetMarsBlue" name="q1-sunsetMars" value ="blue">
+            <label for="blue">Blue</label><br><br>
+            <p>Which part of the human body has the most sweat glands?</p><br>
+            <input type="radio" id="sweatArmpit" name="q2-sweatGlands" value ="armpit">
+            <label for="armpit">The armpit</label><br>
+            <input type="radio" id="sweatFeet" name="q2-sweatGlands" value ="feet">
+            <label for="feet">Feet</label><br>
+            <input type="radio" id="sweatHands" name="q3-sweatGlands" value ="hands">
+            <label for="hands">Hands</label><br><br>
+            <p>What programming language is not part of front end devlopment?*</p>
             <br>
-            <p>What media channel/s have you consumed during the last week?*</p><br>
-            <input type="checkbox" id="tv" name="mediachannels" value="TV">
-            <label for="tv">TV</label><br>
-            <input type="checkbox" id="radio" name="mediachannels" value="radio/pod">
-            <label for="radiopod">Radio/pod</label><br>
-            <input type="checkbox" id="video" name="mediachannels" value="video">
-            <label for="onlinevideo">Online Video</label><br>
-            <input type="checkbox" id="socialMedia" name="mediachannels" value="social media">
-            <label for="socialmedia">Social media</label><br>
-            <input type="checkbox" id="none" name="mediachannels" value="none">
-            <label for="none">None of the above</label><br>
-            <span id="errorMediaChannels"></span>
+            <input type="radio" id="frontEndCss" name="frontEnd" value ="css">
+            <label for="css">CSS</label><br>
+            <input type="radio" id="frontEndc++" name="frontEnd" value ="c++">
+            <label for="c++">C++</label><br>
+            <input type="radio" id="frontEndJs" name="frontEnd" value ="javascript">
+            <label for="javascript">JavaScript</label><br>
+            <span id="errorfrontEnd"></span>
             <br>
-            <label for="favoritecontent">What show/program/clip did you enjoy the most and why?</label><br>
-            <textarea name="favoritecontent" id="favoritecontent" rows="4" cols="30"></textarea>
+            <p>Which of the following is a fruit?*</p><br>
+            <input type="checkbox" id="fruitApple" name="fruit" value="apple">
+            <label for="apple">Apple</label><br>
+            <input type="checkbox" id="fruitAubergine" name="fruit" value="aubergine">
+            <label for="aubergine">Aubergine</label><br>
+            <input type="checkbox" id="fruitStrawberry" name="fruit" value="strawberry">
+            <label for="strawberry">Strawberry</label><br>
+            <input type="checkbox" id="fruitKiwi" name="fruit" value="kiwi">
+            <label for="kiwi">Kiwi</label><br>
+            <span id="errorFruit"></span>
+            <br>
+            <label for="poem">Elimination question: Write a short poem about snow:</label><br>
+            <textarea name="poem" id="favoritecontent" rows="5" cols="50"></textarea>
             <br><br>
             <input type="submit" id="send-button" value="Send">
             <p>* Required</p>

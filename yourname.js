@@ -1,7 +1,8 @@
 
-   const form = document.getElementById('mediaForm');
+   const form = document.getElementById('quiz');
       form.addEventListener('submit', function (event) { validate( form, event )
    })
+
    function validate (form, event ) {
     let valueFirstName = document.getElementById('firstname').value;
     let errorFirstName = document.getElementById('errorFirstName')
@@ -35,51 +36,45 @@
         errorEmail.innerText =''
     }
 
-    errorMediaFormat = document.getElementById('errorMediaFormat')
+    errorfrontEnd = document.getElementById('errorfrontEnd')
     
-        let checkedAudio = document.getElementById('audio').checked;
-        let checkedVisual = document.getElementById('visual').checked;
-        let checkedAudioVisual = document.getElementById('audiovisual').checked;
+        let checkedCss = document.getElementById('frontEndCss').checked;
+        let checkedCplusPlus = document.getElementById('frontEndc++').checked;
+        let checkedJavaScript = document.getElementById('frontEndJs').checked;
 
-        if(checkedAudio === false && checkedVisual === false && checkedAudioVisual === false) {
-            errorMediaFormat.innerText = 'Please select an option';
-            errorMediaFormat.style.color = 'red';
+        if(checkedCss === false && checkedCplusPlus === false && checkedJavaScript === false) {
+            errorfrontEnd.innerText = 'Please select an option';
+            errorfrontEnd.style.color = 'red';
                     }
         else {
-            errorMediaFormat.innerText =''
+            errorfrontEnd.innerText =''
     }
 
-    errorMediaChannel = document.getElementById('errorMediaChannels')
+    errorFruit = document.getElementById('errorFruit')
 
-    let checkedTv = document.getElementById('tv').checked
-    let checkedRadio = document.getElementById('radio').checked
-    let checkedVideo = document.getElementById('video').checked
-    let checkedSocialMeia = document.getElementById('socialMedia').checked
-    let checkedNone = document.getElementById('none').checked
-
-    if(checkedTv === false && checkedRadio === false && checkedVideo === false && checkedSocialMeia === false && checkedNone === false){
-        errorMediaChannel.innerText = 'Please select at least one option';
-        errorMediaChannel.style.color = 'red';
+    let checkedApple = document.getElementById('fruitApple').checked
+    let checkedAubergine = document.getElementById('fruitAubergine').checked
+    let checkedStrawBerry = document.getElementById('fruitStrawberry').checked
+    let checkedKiwi = document.getElementById('fruitKiwi').checked
+    
+    if(checkedApple === false && checkedAubergine === false && checkedStrawBerry === false && checkedKiwi === false){
+        errorFruit.innerText = 'Please select at least one option';
+        errorFruit.style.color = 'red';
     }
     else {
-        errorMediaChannel.innerText =''
+        errorFruit.innerText =''
     }    
     
     let validateFirstName = valueFirstName !== '' && isNaN(valueFirstName)
     let validateLn = valueLn !== '' && isNaN(valueLn)
     let validateEmail = valueEmail !== '' && valueEmail.indexOf('@') !== -1 && valueEmail.indexOf('.') !== -1
-    let validateMediaFormat = checkedAudio === true || checkedVisual === true || checkedAudioVisual === true
-    let validateMediaChannels = checkedTv === true || checkedRadio === true || checkedVideo === true || checkedSocialMeia === true || checkedNone === true
+    let validatefrontEnd = checkedCss === true || checkedCplusPlus === true || checkedJavaScript === true
+    let validateFruit = checkedApple === true || checkedAubergine === true || checkedStrawBerry === true || checkedKiwi === true 
 
-   if(validateFirstName === true && validateLn === true && validateEmail === true && validateMediaFormat === true && validateMediaChannels === true) {
-        alert('Information succussfully filled out!')
-    }
-   else {
-       alert('Information missing')
-    }
-
+    if(validateFirstName === true && validateLn === true && validateEmail === true && validatefrontEnd === true && validateFruit === true) {
+        alert('The quiz was succussfully filled out!')
+            }
       
-    
     event.preventDefault();
     return
    }
