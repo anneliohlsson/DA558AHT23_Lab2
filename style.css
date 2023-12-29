@@ -49,11 +49,25 @@ form legend {
 
 #send-button {
     border-radius: 17%; 
-    padding: 3% 5%; 
+    padding: 2% 4%; 
     font-size: 1em; 
     background-color: rgba(153, 50, 204, 0.301); 
     margin-top: 10px;
     margin-bottom: 1.5em;
+}
+
+#showScore {
+    width: 50%;
+    font-size: 1.5em;
+}
+
+#showAnswersHeader {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+#showAnswers {
+    margin-top: 1em;
 }
 
 #send-button:hover {
