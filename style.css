@@ -6,7 +6,7 @@
     color: rgb(83, 78, 78);
 }
 
-form {
+form  {
     border: 0.125em solid rgba(83, 78, 78, 0.322); 
     width: fit-content;
     height: fit-content; 
