@@ -56,6 +56,12 @@ form legend {
     margin-bottom: 1.5em;
 }
 
+#success {
+    width: 50%;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
 #showScore {
     width: 50%;
     font-size: 1.5em;

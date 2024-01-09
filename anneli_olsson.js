@@ -201,8 +201,10 @@ if(checkQuestionFruit === true) {
 //If validation is ok, show alert about the form being sucessfully filled out and also show score and answers
 
 if (firstNameValidation() === true && lastNameValidation() === true && emailValidation() === true && validateQuestion3 === true && validateQuestion4 === true) {
+    
+   //Show sucess message
 
-    alert('The quiz was sucussfully filled out!');
+   document.getElementById('success').innerText = 'The quiz was successfully filled out!';
 
     //Show score
 
@@ -220,7 +222,7 @@ if (firstNameValidation() === true && lastNameValidation() === true && emailVali
 }
 
 else {
-
+    document.getElementById('success').innerText = '';
     showAnswersHeader.innerText = '';
     showAnswers.innerText = ''; 
     showScore.innerText = '';
