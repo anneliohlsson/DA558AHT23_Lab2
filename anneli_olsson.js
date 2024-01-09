@@ -198,7 +198,7 @@ if(checkQuestionFruit === true) {
     score = score + 1;
 } 
 
-//If validation is ok, show alert about the form being sucessfully filled out and also show score and answers
+//If validation is ok, show message about the form being sucessfully filled out and also show score and answers
 
 if (firstNameValidation() === true && lastNameValidation() === true && emailValidation() === true && validateQuestion3 === true && validateQuestion4 === true) {
     
