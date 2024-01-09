@@ -1,163 +1,231 @@
-
-    let form = document.getElementById('quiz');
+let form = document.getElementById('quiz');
     form.addEventListener('submit', validate);
 
-   function validate (event) {
+    function validate (event) {
+
+
+//Validate first and last name input fields
+
+let letters = /^[A-Za-z]+$/;
+
+    //First name validation
+
     let valueFirstName = document.getElementById('firstname').value;
     let errorFirstName = document.getElementById('errorFirstName');
-    let letters = /^[A-Za-z]+$/;
-        
-    if(valueFirstName === '' || (!isNaN(valueFirstName)) || !valueFirstName.match(letters)) {
-    errorFirstName.innerText ='Please enter your first name (only letters)';
-    errorFirstName.style.color = 'red';
-    }
+
+    function firstNameValidation() {
+    if(valueFirstName === '' || (!isNaN(valueFirstName)) || !valueFirstName.match(letters)) 
+    { 
+        return false;
+    
+    } 
 
     else {
-        errorFirstName.innerText ='';
+        return true;
     }
+}
 
+    //Show error message for First name
+    if(firstNameValidation() === false) {
+
+    errorFirstName.innerText ='Please enter your first name (only letters)';
+    errorFirstName.style.color = 'red';}
+
+    else {
+    errorFirstName.innerText =''; }
+
+    //Last name validation
     let valueLn = document.getElementById('lastname').value;
     let errorLn = document.getElementById('errorLastName');
-    if(valueLn === '' || (!isNaN(valueLn)) || !valueLn.match(letters)) {
+    
+    function lastNameValidation() {
+        if(valueLn === '' || (!isNaN(valueLn)) || !valueLn.match(letters)) {
+            return false;
+        }
+
+        else {
+            return true;
+        }
+
+    }
+
+    //Show error message for Last name
+
+    if(lastNameValidation() === false) {
+
         errorLn.innerText = 'Please enter your last name (only letters)';
         errorLn.style.color = 'red';
+
     }
+
     else {
         errorLn.innerText ='';
 
     }
+//Validate email input field
 
-    let valueEmail = document.getElementById('email').value;
-    let errorEmail = document.getElementById('errorEmail');
+let valueEmail = document.getElementById('email').value;
+let errorEmail = document.getElementById('errorEmail');
+
+function emailValidation() {
+
     if( valueEmail === '' || ( valueEmail.indexOf('@') === -1) || (valueEmail.indexOf('.') === -1 ) ) {
-        errorEmail.innerText = 'Please enter a valid email adress';
-        errorEmail.style.color = 'red';
+        return false;
     }
+
     else {
-        errorEmail.innerText ='';
+        return true;
     }
 
-    let errorfrontEnd = document.getElementById('errorfrontEnd');
-    let checkedCss = document.getElementById('frontEndCss').checked;
-    let checkedCplusPlus = document.getElementById('frontEndc++').checked;
-    let checkedJavaScript = document.getElementById('frontEndJs').checked;
-
-    if(checkedCss === false && checkedCplusPlus === false && checkedJavaScript === false) {
-        errorfrontEnd.innerText = 'Please select an option';
-        errorfrontEnd.style.color = 'red';
-                    }
-    else {errorfrontEnd.innerText ='';
-    }
-
-    let errorFruit = document.getElementById('errorFruit');
-    let checkedBlueSunset = document.getElementById('sunsetMarsBlue').checked;
-    let checkedArmpit = document.getElementById('sweatArmpit').checked;
-    let checkedApple = document.getElementById('fruitApple').checked;
-    let checkedAubergine = document.getElementById('fruitAubergine').checked;
-    let checkedStrawBerry = document.getElementById('fruitStrawberry').checked;
-    let checkedKiwi = document.getElementById('fruitKiwi').checked;
-    
-    if(checkedApple === false && checkedAubergine === false && checkedStrawBerry === false && checkedKiwi === false) {
-        errorFruit.innerText = 'Please select at least one option';
-        errorFruit.style.color = 'red';
-    }
-    else {
-        errorFruit.innerText ='';
-    }    
-    
-    let validateFirstName = valueFirstName !== '' && isNaN(valueFirstName);
-    let validateLn = valueLn !== '' && isNaN(valueLn);
-    let validateEmail = valueEmail !== '' && valueEmail.indexOf('@') !== -1 && valueEmail.indexOf('.') !== -1;
-    let validatefrontEnd = checkedCss === true || checkedCplusPlus === true || checkedJavaScript === true;
-    let validateFruit = checkedApple === true || checkedAubergine === true || checkedStrawBerry === true || checkedKiwi === true; 
-
-    if(validateFirstName === true && validateLn === true && validateEmail === true && validatefrontEnd === true && validateFruit === true) {
-        alert('The quiz was succussfully filled out!');
-        let showAnswers = document.getElementById('showAnswers');
-        let showAnswersHeader = document.getElementById('showAnswersHeader');
-    
-        showAnswersHeader.innerText = 'The correct answers are:';
-        showAnswers.innerText = 'Blue\nThe armpit\nC++\nApple, strawberry, kiwi';
-
-    let score = 0;
-    let showScore = document.getElementById('showScore');
-
-    if(validateFirstName === true && validateLn === true && validateEmail === true && validatefrontEnd === true && validateFruit === true && checkedBlueSunset === true) {
-        score = score + 1
-        showScore.innerText = 'Your result is ' + score + '/4';
-        showScore.style.backgroundColor = 'yellow';
-    }
-    
-    if(validateFirstName === true && validateLn === true && validateEmail === true && validatefrontEnd === true && validateFruit === true && checkedArmpit === true) {
-        score = score + 1
-        showScore.innerText = 'Your result is ' + score + '/4';
-        showScore.style.backgroundColor = 'yellow';
-    }
-
-    if(validateFirstName === true && validateLn === true && validateEmail === true && validatefrontEnd === true && validateFruit === true && checkedCplusPlus === true) {
-        score = score + 1
-        showScore.innerText = 'Your result is ' + score + '/4';
-        showScore.style.backgroundColor = 'yellow';
-    }
-          
-    if(validateFirstName === true && validateLn === true && validateEmail === true && validatefrontEnd === true && validateFruit === true && checkedStrawBerry === true && checkedApple === true && checkedKiwi === true && checkedAubergine === false) {
-        score = score + 1
-        showScore.innerText = 'Your result is ' + score + '/4';
-        showScore.style.backgroundColor = 'yellow';
-    }
-
-    if(validateFirstName === true && validateLn === true && validateEmail === true && validatefrontEnd === true && validateFruit === true && score < 1) {
-        showScore.innerText = 'Your result is 0/4';
-        showScore.style.backgroundColor = 'yellow';  
-    }
-    
-    score = 0;
-    }
-
-    else {showAnswersHeader.innerText = '';
-    showAnswers.innerText = ''; 
-    showScore.innerText = ''; 
 }
 
+//Show error message for email
 
-    event.preventDefault();
-    return;
-   }
+if(emailValidation() === false) {
 
-   
+    errorEmail.innerText = 'Please enter a valid email adress';
+        errorEmail.style.color = 'red';
+}
 
- 
+else {
+    errorEmail.innerText ='';
 
-   
-   
+}
+
+//Validate questions
+function validateQuestions(questionId) {
     
+    if(document.querySelector(`input[name="${questionId}"]:checked`)) {
+        return true;
+    }
+
+    else {
+        return false;
+
+}
+
+}
+
+//Validate Question 3 and show error message if not correct
+
+ let validateQuestion3 = validateQuestions('frontEnd');
+ let errorfrontEnd = document.getElementById('errorfrontEnd');
+
+ if(validateQuestion3 === false) {
+        errorfrontEnd.innerText = 'Please select an option';
+        errorfrontEnd.style.color = 'red';
+ }
+
+ else {
+    errorfrontEnd.innerText ='';
+ }
+
+//Validate Question 4 and show error message if not correct
+
+let validateQuestion4 = validateQuestions('fruit');
+let errorFruit = document.getElementById('errorFruit');
+if(validateQuestion4 === false) {
+    errorFruit.innerText = 'Please select an option';
+    errorFruit.style.color = 'red';
+}
+
+else {
+errorFruit.innerText ='';
+}
+
     
-    
-    
-    
-        
-    
+//Check radiobutton questions for correct answer
+
+    function isRadioAnswerCorrect(questionId, correctValue) {
+    const userAnswer = document.querySelector(`input[name="${questionId}"]:checked`);
+    return userAnswer ? userAnswer.value.toLowerCase() === correctValue.toLowerCase() : false;
+}
+
+//Check checkbox questions for correct answers
+
+    function isCheckboxAnswerCorrect(questionId, correctValues) {
+        const checkedCheckboxes = []
+
+        document.querySelectorAll(`input[name="${questionId}"]:checked`)
+        .forEach(checkbox => {
+            checkedCheckboxes.push(checkbox.value.toLowerCase());
+            
+        });
+
+        return arraysEqual(checkedCheckboxes, correctValues.map(value => value.toLowerCase()));
+
+    }
+
+    function arraysEqual(arr1, arr2) {
+        return arr1.length === arr2.length && arr1.every((value, index) => value === arr2[index]);
+    }
 
 
-      
+//Check Question 1 for correct answer
+const checkQuestionSunset = isRadioAnswerCorrect('sunsetMars', document.getElementById('sunsetMarsBlue').value);
 
 
-  
+//Check Question  for correct answer
+const checkQuestionSweatGlands = isRadioAnswerCorrect('sweatGlands', document.getElementById('sweatArmpit').value);
 
 
+//Check Question 3 for correct answer
+const checkQuestionFrontend = isRadioAnswerCorrect('frontEnd', document.getElementById('frontEndc++').value);
 
 
+//Check Question 4 for correct answers
+const correctValuesFruit = ["apple", "strawberry", "kiwi"];
+const checkQuestionFruit = isCheckboxAnswerCorrect('fruit', correctValuesFruit);
 
 
+//calculate score
 
+score = 0
 
+if(checkQuestionSunset === true) {
+    score = score + 1;
+} 
 
+if(checkQuestionSweatGlands === true) {
+    score = score + 1;
+} 
 
+if(checkQuestionFrontend === true) {
+    score = score + 1;
+} 
 
+if(checkQuestionFruit === true) {
+    score = score + 1;
+} 
 
+//If validation is ok, show alert about the form being sucessfully filled out and also show score and answers
 
+if (firstNameValidation() === true && lastNameValidation() === true && emailValidation() === true && validateQuestion3 === true && validateQuestion4 === true) {
 
+    alert('The quiz was sucussfully filled out!');
 
+    //Show score
 
+    let showScore = document.getElementById('showScore');
 
+    showScore.innerText = 'Your result is ' + score + '/4';
+    showScore.style.backgroundColor = 'yellow';
 
+    //Show answers
+
+    let showAnswers = document.getElementById('showAnswers');
+    showAnswersHeader.innerText = 'The correct answers are:\n';
+    showAnswers.innerText = 'Blue\nThe armpit\nC++\nApple, Strawberry, Kiwi';
+
+}
+
+else {
+
+    showAnswersHeader.innerText = '';
+    showAnswers.innerText = ''; 
+    showScore.innerText = '';
+}
+
+event.preventDefault();
+return;
+}
